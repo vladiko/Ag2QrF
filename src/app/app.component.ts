@@ -32,7 +32,7 @@ import { AppState } from './app.service';
         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
         Barrel
       </a>     
-       <a [routerLink]=" ['./vladi'] "
+       <a [routerLink]=" ['./vladi'] " *ngIf="isVladiVisible"
         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
         Vladi
       </a>
@@ -42,24 +42,27 @@ import { AppState } from './app.service';
       <router-outlet></router-outlet>
     </main>    
   `
-/*<footer>
-      <span>vladi</span>
-      <div>
-        <a [href]="url">
-          <img [src]="angularclassLogo" width="25%">
-        </a>
-      </div>
-    </footer> */
+  /*<footer>
+        <span>vladi</span>
+        <div>
+          <a [href]="url">
+            <img [src]="angularclassLogo" width="25%">
+          </a>
+        </div>
+      </footer> */
 
 })
 export class AppComponent implements OnInit {
   public angularclassLogo = 'assets/img/angularclass-avatar.png';
+  public isVladiVisible = true;
+
 
   constructor(
     public appState: AppState
   ) { }
 
   public ngOnInit() {
+
     // console.log('Initial App State', this.appState.state);
   }
 }
