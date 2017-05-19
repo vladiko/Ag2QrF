@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
     selector: 'vladi',
     template: `
-    <h1>Hello from vladi</h1>    
+    <h1>Hello from vladi Component</h1>    
     <div>
     <button (click)="click($event)">click me</button>    
     </div>
