@@ -3,7 +3,7 @@ import {
     OnInit
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LoginCommunicationHelper } from '../services/communication/loginCommunicationHelper/loginCommunicationHelper';
+import { LoginCommunicationHelper } from '../services';
 
 
 @Component({

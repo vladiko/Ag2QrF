@@ -20,8 +20,8 @@ import {
  */
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
-import { CurrentUser } from './services/currentUser/currentUser';
-import { LoginCommunicationHelper } from './services/communication/loginCommunicationHelper/loginCommunicationHelper';
+import { CurrentUser, LoginCommunicationHelper } from './services';
+// import { LoginCommunicationHelper } from './services/communication/loginCommunicationHelper/loginCommunicationHelper';
 
 // App is our top level component
 import { AppComponent } from './app.component';

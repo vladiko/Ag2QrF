@@ -9,10 +9,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class LoginCommunicationHelper {
     private url = 'http://qrnewapi.azurewebsites.net/user/login';
-    constructor(public currentUser: CurrentUser, private http: Http) {
-        console.log('tst: ' + JSON.stringify(currentUser));
-        console.log('http: ' + JSON.stringify(http));
-    }
+    constructor(public currentUser: CurrentUser, private http: Http) { }
 
     public login(userName: string, userPassword: string) {
         return this.http.post(this.url, { username: userName, password: userPassword }).map((res: Response) => {
