@@ -20,6 +20,9 @@ import {
  */
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
+import { CurrentUser } from './services/currentUser/currentUser';
+import { LoginCommunicationHelper } from './services/communication/loginCommunicationHelper/loginCommunicationHelper';
+
 // App is our top level component
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
@@ -72,7 +75,9 @@ type StoreType = {
    */
   providers: [
     ENV_PROVIDERS,
-    APP_PROVIDERS
+    APP_PROVIDERS,
+    CurrentUser,
+    LoginCommunicationHelper
   ]
 })
 export class AppModule {

@@ -3,6 +3,7 @@ import {
     OnInit
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { LoginCommunicationHelper } from '../services/communication/loginCommunicationHelper/loginCommunicationHelper';
 
 
 @Component({
@@ -26,7 +27,8 @@ export class VladiComponent implements OnInit {
 
     public lastTimeText: string = '';
 
-    constructor(public route: ActivatedRoute) { }
+    constructor(public route: ActivatedRoute,
+        public loginCommunicationHelper: LoginCommunicationHelper) { }
     public ngOnInit(): void {
         this.route
             .data
@@ -40,5 +42,8 @@ export class VladiComponent implements OnInit {
 
     public click(a) {
         this.lastTimeText = this.textFromInput;
+        this.loginCommunicationHelper.login('vladi', '1234').subscribe((data) => {
+            console.log('from comp: ' + JSON.stringify(data));
+        });
     }
 }
