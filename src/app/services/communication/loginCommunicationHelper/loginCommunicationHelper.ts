@@ -22,7 +22,7 @@ export class LoginCommunicationHelper {
                 this.currentUser.userName = userName;
                 return this.currentUser;
             } else {
-                return null;
+                return data.message;
             }
         });
     }

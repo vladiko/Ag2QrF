@@ -9,26 +9,36 @@ import { LoginCommunicationHelper } from '../services';
 @Component({
     selector: 'vladi',
     template: `
-    <h1>Hello from vladi Component</h1>    
-    <div>
-    <button (click)="click($event)">click me</button>    
-    </div>
-    <div><input [(ngModel)]="textFromInput" /></div>
+    <h1>Hello from vladi Component</h1>        
     <div><span>last click text: </span> {{lastTimeText}}</div>
     <div><span> test from input: </span> {{textFromInput}}</div>
-
+    <div><button (click)="click($event)">click me</button></div>
+    <br/>
+    <br/>
+<label>
+User name: 
+     <div><input [(ngModel)]="user" /></div>
+</label>
+<label>
+Password: 
+     <div><input type="password" [(ngModel)]="password" /></div>
+</label>
+<div><button (click)="login($event)">Login</button></div>
+<div><span>{{loginMessage}}</span></div>  
+   
   `
 })
 export class VladiComponent implements OnInit {
     public localState: any;
 
-
     public textFromInput: string = '';
 
     public lastTimeText: string = '';
 
-    constructor(public route: ActivatedRoute,
-        public loginCommunicationHelper: LoginCommunicationHelper) { }
+    public password: string = '';
+    public user: string = '';
+    public loginMessage = '';
+    constructor(public route: ActivatedRoute, public loginCommunicationHelper: LoginCommunicationHelper) { }
     public ngOnInit(): void {
         this.route
             .data
@@ -42,8 +52,19 @@ export class VladiComponent implements OnInit {
 
     public click(a) {
         this.lastTimeText = this.textFromInput;
-        this.loginCommunicationHelper.login('vladi', '1234').subscribe((data) => {
-            console.log('from comp: ' + JSON.stringify(data));
+
+    }
+
+    public login(a) {
+        this.loginCommunicationHelper.login(this.user, this.password).subscribe((data) => {
+            if (data && data.token) {
+                this.loginMessage = 'login succeeded';
+            } else if (data) {
+                this.loginMessage = data;
+            } else {
+                this.loginMessage = 'login failed';
+            }
+            this.password = '';
         });
     }
 }
