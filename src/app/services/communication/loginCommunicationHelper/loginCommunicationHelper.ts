@@ -20,6 +20,10 @@ export class LoginCommunicationHelper {
             if (data.gotToken) {
                 this.currentUser.token = data.token;
                 this.currentUser.userName = userName;
+                this.currentUser.userRoles = data.roles;
+                if (data.role && this.currentUser.userRoles.indexOf(data.role) < 0) {
+                    this.currentUser.userRoles.push(data.role);
+                }
                 return this.currentUser;
             } else {
                 return data.message;
