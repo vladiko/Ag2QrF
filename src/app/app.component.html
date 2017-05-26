@@ -1,13 +1,10 @@
 <div [hidden]="!currentUser.token">
-    <nav>
-        <a [routerLink]=" ['./'] " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-        Index
-      </a>
-        <a [routerLink]=" ['./home'] " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-        Home
-      </a>
+    <nav>       
         <a [routerLink]=" ['./barrel'] " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         Barrel
+      </a>
+      <a [routerLink]=" ['./admin'] " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        Admin
       </a>
         <a [routerLink]=" ['./vladi'] " routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
         Vladi

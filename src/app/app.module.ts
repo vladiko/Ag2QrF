@@ -15,6 +15,11 @@ import {
   PreloadAllModules
 } from '@angular/router';
 
+import {
+  AdminModule
+} from './+admin';
+
+
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -33,6 +38,7 @@ import { VladiComponent } from './vladi';
 import { LoginComponent } from './login';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
+import { UsersComponent } from './+admin';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -70,6 +76,7 @@ type StoreType = {
     BrowserModule,
     FormsModule,
     HttpModule,
+    AdminModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   /**

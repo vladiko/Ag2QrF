@@ -5,6 +5,7 @@ import { VladiComponent } from './vladi';
 import { NoContentComponent } from './no-content';
 
 import { DataResolver } from './app.resolver';
+import { UsersComponent } from './+admin';
 
 export const ROUTES: Routes = [
   { path: '', component: HomeComponent },
@@ -13,5 +14,7 @@ export const ROUTES: Routes = [
   { path: 'vladi', component: VladiComponent },
   // { path: 'detail', loadChildren: './+detail#DetailModule' },
   { path: 'barrel', loadChildren: './+barrel#BarrelModule' },
+  { path: 'admin', component: UsersComponent },
   { path: '**', component: NoContentComponent },
+
 ];
