@@ -7,6 +7,7 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { AppState } from './app.service';
+import { CurrentUser } from './services';
 
 /**
  * App Component
@@ -14,56 +15,21 @@ import { AppState } from './app.service';
  */
 @Component({
   selector: 'app',
-  encapsulation: ViewEncapsulation.None,
+  // encapsulation: ViewEncapsulation.None,
   styleUrls: [
     './app.component.css'
   ],
-  template: `
-    <nav>
-      <a [routerLink]=" ['./'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Index
-      </a>
-      <a [routerLink]=" ['./home'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Home
-      </a> 
-      <a [routerLink]=" ['./barrel'] "
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Barrel
-      </a>     
-       <a [routerLink]=" ['./vladi'] " *ngIf="isVladiVisible"
-        routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
-        Vladi
-      </a>
-    </nav>
-
-    <main>
-      <router-outlet></router-outlet>
-    </main>    
-  `
-  /*<footer>
-        <span>vladi</span>
-        <div>
-          <a [href]="url">
-            <img [src]="angularclassLogo" width="25%">
-          </a>
-        </div>
-      </footer> */
-
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
   public angularclassLogo = 'assets/img/angularclass-avatar.png';
-  public isVladiVisible = true;
-
-
   constructor(
+    public currentUser: CurrentUser,
     public appState: AppState
   ) { }
 
   public ngOnInit() {
-
-    // console.log('Initial App State', this.appState.state);
+    // emtpy
   }
 }
 

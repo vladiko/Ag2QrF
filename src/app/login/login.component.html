@@ -1,0 +1,11 @@
+<form autocomplete="off" (submit)="login()">
+    <label>User name:
+        <div><input [(ngModel)]="user" [ngModelOptions]="{standalone: true}"/></div>
+    </label>
+    <label>Password:
+        <div><input type="password" [(ngModel)]="password"  [ngModelOptions]="{standalone: true}"/></div>
+    </label>
+    <div><button>Login</button></div>
+    <div><span>{{loginMessage}}</span></div>
+</form>
+<!--type="submit" (click)="login($event)"-->

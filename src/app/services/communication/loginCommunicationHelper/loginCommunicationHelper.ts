@@ -3,9 +3,6 @@ import { CurrentUser } from '../../currentUser/currentUser';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { CommunicationConstants } from '../communicationConstants';
-// export type InternalStateType = {
-
-// };
 
 @Injectable()
 export class LoginCommunicationHelper {

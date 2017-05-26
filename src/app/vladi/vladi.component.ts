@@ -20,7 +20,7 @@ User name:
      <div><input [(ngModel)]="user" /></div>
 </label>
 <label>
-Password: 
+Password W: 
      <div><input type="password" [(ngModel)]="password" /></div>
 </label>
 <div><button (click)="login($event)">Login</button></div>

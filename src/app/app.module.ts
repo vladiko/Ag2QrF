@@ -30,6 +30,7 @@ import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { VladiComponent } from './vladi';
+import { LoginComponent } from './login';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
 
@@ -58,6 +59,7 @@ type StoreType = {
     AboutComponent,
     VladiComponent,
     HomeComponent,
+    LoginComponent,
     NoContentComponent,
     XLargeDirective
   ],

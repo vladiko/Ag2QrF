@@ -11,16 +11,11 @@
   <hr>
 
   <div>
-    <h2> {{title.value}}</h2>
-    <h4>Local State</h4>
 
-    <form (ngSubmit)="submitState(localState.value)" autocomplete="off">
 
-      <input [value]="localState.value" (input)="localState.value = $event.target.value" placeholder="Submit Local State to App State"
-        autofocus>
 
-      <button>Submit Value</button>
-    </form>
+    <!--(ngSubmit)="submitState(localState.value)"-->
+
     <!--
         <input type="text" [value]="localState.value" (input)="localState.value = $event.target.value" autofocus>
         Rather than wiring up two-way data-binding ourselves with [value] and (input)
@@ -28,7 +23,6 @@
         <input type="text" name="textInput" [(ngModel)]="localState.value" autofocus>
       -->
 
-    <pre>this.localState = {{ localState | json }}</pre>
 
   </div>
 
