@@ -12,14 +12,10 @@ console.log('`users` component loaded asynchronously');
 
 @Component({
     selector: 'users',
-    template: `
-    <h1>Hello from Users</h1>
-  `
+    templateUrl: './users.component.html'
 })
 export class UsersComponent implements OnInit {
-
     public ngOnInit() {
         console.log('hello `Users` component');
     }
-
 }
