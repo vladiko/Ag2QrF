@@ -31,7 +31,6 @@ import { CurrentUser, LoginCommunicationHelper } from './services';
 // App is our top level component
 import { AppComponent } from './app.component';
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
-import { AppState, InternalStateType } from './app.service';
 import { HomeComponent } from './home';
 import { AboutComponent } from './about';
 import { VladiComponent } from './vladi';
@@ -45,12 +44,10 @@ import '../styles/headings.css';
 
 // Application wide providers
 const APP_PROVIDERS = [
-  ...APP_RESOLVER_PROVIDERS,
-  AppState
+  ...APP_RESOLVER_PROVIDERS
 ];
 
 type StoreType = {
-  state: InternalStateType,
   restoreInputValues: () => void,
   disposeOldHosts: () => void
 };
@@ -92,19 +89,12 @@ type StoreType = {
 export class AppModule {
 
   constructor(
-    public appRef: ApplicationRef,
-    public appState: AppState
+    public appRef: ApplicationRef
   ) { }
 
   public hmrOnInit(store: StoreType) {
-    if (!store || !store.state) {
-      return;
-    }
     console.log('HMR store', JSON.stringify(store, null, 2));
-    /**
-     * Set state
-     */
-    this.appState._state = store.state;
+
     /**
      * Set input values
      */
@@ -114,17 +104,12 @@ export class AppModule {
     }
 
     this.appRef.tick();
-    delete store.state;
     delete store.restoreInputValues;
   }
 
   public hmrOnDestroy(store: StoreType) {
     const cmpLocation = this.appRef.components.map((cmp) => cmp.location.nativeElement);
-    /**
-     * Save state
-     */
-    const state = this.appState._state;
-    store.state = state;
+
     /**
      * Recreate root elements
      */
@@ -146,5 +131,4 @@ export class AppModule {
     store.disposeOldHosts();
     delete store.disposeOldHosts;
   }
-
 }

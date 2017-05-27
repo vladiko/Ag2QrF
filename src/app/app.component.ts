@@ -6,7 +6,6 @@ import {
   OnInit,
   ViewEncapsulation
 } from '@angular/core';
-import { AppState } from './app.service';
 import { CurrentUser } from './services';
 
 /**
@@ -24,8 +23,7 @@ import { CurrentUser } from './services';
 export class AppComponent implements OnInit {
   public angularclassLogo = 'assets/img/angularclass-avatar.png';
   constructor(
-    public currentUser: CurrentUser,
-    public appState: AppState
+    public currentUser: CurrentUser
   ) { }
 
   public ngOnInit() {

@@ -10,8 +10,6 @@ import {
  * Load the implementations that should be tested
  */
 import { AppComponent } from './app.component';
-import { AppState } from './app.service';
-
 describe(`App`, () => {
   let comp: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
@@ -22,8 +20,7 @@ describe(`App`, () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ AppComponent ],
-      schemas: [NO_ERRORS_SCHEMA],
-      providers: [AppState]
+      schemas: [NO_ERRORS_SCHEMA]
     })
     /**
      * Compile template and css
