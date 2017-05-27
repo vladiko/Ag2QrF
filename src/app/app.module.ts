@@ -19,14 +19,16 @@ import {
   AdminModule
 } from './+admin';
 
+import {
+  AuthenticationModule
+} from './+authentication';
 
 /*
  * Platform and Environment providers/directives/pipes
  */
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
-import { CurrentUser, LoginCommunicationHelper } from './services';
-// import { LoginCommunicationHelper } from './services/communication/loginCommunicationHelper/loginCommunicationHelper';
+import { LoginCommunicationHelper } from './services';
 
 // App is our top level component
 import { AppComponent } from './app.component';
@@ -38,6 +40,7 @@ import { LoginComponent } from './login';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
 import { UsersComponent } from './+admin';
+// import { CurrentUser } from './+authentication';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
@@ -74,6 +77,7 @@ type StoreType = {
     FormsModule,
     HttpModule,
     AdminModule,
+    AuthenticationModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   /**
@@ -82,7 +86,6 @@ type StoreType = {
   providers: [
     ENV_PROVIDERS,
     APP_PROVIDERS,
-    CurrentUser,
     LoginCommunicationHelper
   ]
 })

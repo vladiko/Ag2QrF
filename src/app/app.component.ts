@@ -6,7 +6,7 @@ import {
   OnInit,
   ViewEncapsulation
 } from '@angular/core';
-import { CurrentUser } from './services';
+import { CurrentUser } from './+authentication';
 
 /**
  * App Component
@@ -34,7 +34,7 @@ export class AppComponent implements OnInit {
 /* <a [routerLink]=" ['./about'] "
         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
         About
-      </a>  
+      </a>
    <a [routerLink]=" ['./detail'] "
         routerLinkActive="active" [routerLinkActiveOptions]= "{exact: true}">
         Detail

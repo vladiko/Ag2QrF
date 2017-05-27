@@ -2,7 +2,7 @@ import {
     Component,
     OnInit
 } from '@angular/core';
-import { LoginCommunicationHelper, CurrentUser } from '../services';
+import { LoginCommunicationHelper } from '../services';
 @Component({
     selector: 'login',
     styleUrls: [
@@ -17,8 +17,7 @@ export class LoginComponent implements OnInit {
     public loginMessage = '';
 
     constructor(
-        public loginCommunicationHelper: LoginCommunicationHelper,
-        public currentUser: CurrentUser
+        public loginCommunicationHelper: LoginCommunicationHelper
     ) { }
 
     public ngOnInit() {
