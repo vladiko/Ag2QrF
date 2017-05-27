@@ -19,13 +19,13 @@ describe(`App`, () => {
    */
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AppComponent ],
+      declarations: [AppComponent],
       schemas: [NO_ERRORS_SCHEMA]
     })
-    /**
-     * Compile template and css
-     */
-    .compileComponents();
+      /**
+       * Compile template and css
+       */
+      .compileComponents();
   }));
 
   /**
@@ -33,7 +33,7 @@ describe(`App`, () => {
    */
   beforeEach(() => {
     fixture = TestBed.createComponent(AppComponent);
-    comp    = fixture.componentInstance;
+    comp = fixture.componentInstance;
 
     /**
      * Trigger initial data binding
@@ -44,12 +44,6 @@ describe(`App`, () => {
   it(`should be readly initialized`, () => {
     expect(fixture).toBeDefined();
     expect(comp).toBeDefined();
-  });
-
-  it(`should be @AngularClass`, () => {
-    // expect(comp.url).toEqual('https://twitter.com/AngularClass');
-    // expect(comp.angularclassLogo).toEqual('assets/img/angularclass-avatar.png');
-    // expect(comp.name).toEqual('Angular 2 Webpack Starter');
   });
 
   it('should log ngOnInit', () => {

@@ -1,10 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
 import { AuthenticationModule } from '../+authentication';
 import { LoginCommunicationHelper } from './loginCommunicationHelper/loginCommunicationHelper';
-import {
-    NgModule
-} from '@angular/core';
+import { UsersCommunicationHelper } from './usersCommunicationHelper/usersCommunicationHelper';
 
 console.log('`Communication Module` bundle loaded asynchronously');
 
@@ -20,7 +19,8 @@ console.log('`Communication Module` bundle loaded asynchronously');
         AuthenticationModule
     ],
     providers: [
-        LoginCommunicationHelper
+        LoginCommunicationHelper,
+        UsersCommunicationHelper
     ]
 })
 export class CommunicationModule {

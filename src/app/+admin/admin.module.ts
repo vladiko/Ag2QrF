@@ -3,6 +3,7 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { UsersComponent } from './components/users/users.component';
+import { UserService } from './services/users.service';
 
 // console.log('`Barrel` bundle loaded asynchronously');
 
@@ -18,6 +19,9 @@ import { UsersComponent } from './components/users/users.component';
         FormsModule// ,
         // RouterModule.forChild(routes),
     ],
+    providers: [
+        UserService
+    ]
 })
 export class AdminModule {
     // empty
