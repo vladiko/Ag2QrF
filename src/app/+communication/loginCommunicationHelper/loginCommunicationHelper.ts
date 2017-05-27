@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
-import { CommunicationConstants } from '../communicationConstants';
-import { CurrentUser } from '../../../+authentication';
+import { CommunicationConstants } from '../constants/communicationConstants';
+import { CurrentUser } from '../../+authentication';
 
 @Injectable()
 export class LoginCommunicationHelper {
@@ -26,5 +26,6 @@ export class LoginCommunicationHelper {
                 return data.message;
             }
         });
+
     }
 }

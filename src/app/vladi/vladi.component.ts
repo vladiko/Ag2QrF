@@ -3,8 +3,6 @@ import {
     OnInit
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LoginCommunicationHelper } from '../services';
-
 
 @Component({
     selector: 'vladi',
@@ -23,7 +21,6 @@ User name:
 Password W: 
      <div><input type="password" [(ngModel)]="password" /></div>
 </label>
-<div><button (click)="login($event)">Login</button></div>
 <div><span>{{loginMessage}}</span></div>  
    
   `
@@ -38,7 +35,7 @@ export class VladiComponent implements OnInit {
     public password: string = '';
     public user: string = '';
     public loginMessage = '';
-    constructor(public route: ActivatedRoute, public loginCommunicationHelper: LoginCommunicationHelper) { }
+    constructor(public route: ActivatedRoute) { }
     public ngOnInit(): void {
         this.route
             .data
@@ -52,19 +49,5 @@ export class VladiComponent implements OnInit {
 
     public click(a) {
         this.lastTimeText = this.textFromInput;
-
-    }
-
-    public login(a) {
-        this.loginCommunicationHelper.login(this.user, this.password).subscribe((data) => {
-            if (data && data.token) {
-                this.loginMessage = 'login succeeded';
-            } else if (data) {
-                this.loginMessage = data;
-            } else {
-                this.loginMessage = 'login failed';
-            }
-            this.password = '';
-        });
     }
 }

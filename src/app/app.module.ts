@@ -23,12 +23,14 @@ import {
   AuthenticationModule
 } from './+authentication';
 
+import {
+  CommunicationModule
+} from './+communication';
 /*
  * Platform and Environment providers/directives/pipes
  */
 import { ENV_PROVIDERS } from './environment';
 import { ROUTES } from './app.routes';
-import { LoginCommunicationHelper } from './services';
 
 // App is our top level component
 import { AppComponent } from './app.component';
@@ -78,6 +80,7 @@ type StoreType = {
     HttpModule,
     AdminModule,
     AuthenticationModule,
+    CommunicationModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],
   /**
@@ -85,8 +88,7 @@ type StoreType = {
    */
   providers: [
     ENV_PROVIDERS,
-    APP_PROVIDERS,
-    LoginCommunicationHelper
+    APP_PROVIDERS
   ]
 })
 export class AppModule {

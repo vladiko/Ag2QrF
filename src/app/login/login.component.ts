@@ -2,7 +2,7 @@ import {
     Component,
     OnInit
 } from '@angular/core';
-import { LoginCommunicationHelper } from '../services';
+import { LoginCommunicationHelper } from '../+communication';
 @Component({
     selector: 'login',
     styleUrls: [
