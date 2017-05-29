@@ -1,6 +1,9 @@
-label { 
-    color: darkblue;
-    font-size: 25px;
+label {     
     display: block;
     margin: 10px 0px 10px 3px;
+}
+
+span {
+    color: darkblue;
+    font-size: 20px;
 }
