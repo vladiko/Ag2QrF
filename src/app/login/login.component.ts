@@ -20,9 +20,9 @@ export class LoginComponent implements OnInit {
         public loginCommunicationHelper: LoginCommunicationHelper
     ) {
 
-        this.user = 'vladi2';
-        this.password = '1234';
-        this.login(null);
+        // this.user = 'vladi2';
+        // this.password = '1234';
+        // this.login(null);
 
     }
 

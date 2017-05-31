@@ -16,6 +16,9 @@ export class UsersComponent implements OnInit, AfterViewInit {
 
     }
 
+    public removeItem(user) {
+        console.log(`remove user: ${user.username}`);
+    }
     public ngOnInit() {
         console.log('hello `Users` component');
     }
