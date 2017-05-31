@@ -26,7 +26,10 @@
                     <th>
                         Last Name
                     </th>
-                    <th style="width:60px">
+                    <th>
+                        Email
+                    </th>
+                    <th style="width:110px">
                         <!--<i class="fa fa-spinner fa-pulse fa-2x fa-fw"></i>-->
                     </th>
                 </tr>
@@ -43,9 +46,24 @@
                         {{user.lastName}}
                     </td>
                     <td>
-                        <button type="button" (click)="removeItem(user)" class="btn btn-default" aria-label="remove">
+                        {{user.email}}
+                    </td>
+                    <td>
+
+                        <div class="btn-group">
+                            <a class="btn btn-default" (click)="removeItem(user)">
+                                    <i class="fa fa-times fa-lg" title="remove"></i>
+                                      </a>
+                            <a class="btn btn-default">
+                                <i class="fa fa-edit fa-lg" title="Edit"></i>
+                            </a>
+                        </div>
+                        <!--<button type="button" (click)="removeItem(user)" class="btn btn-default" aria-label="remove">
                              <i class="fa fa-times fa-lg"></i>
                         </button>
+                        <button type="button" (click)="removeItem(user)" class="btn btn-default" aria-label="remove">
+                             <i class="fa fa-edit fa-lg"></i>
+                        </button>-->
                     </td>
             </tbody>
         </table>
