@@ -18,7 +18,13 @@ export class LoginComponent implements OnInit {
 
     constructor(
         public loginCommunicationHelper: LoginCommunicationHelper
-    ) { }
+    ) {
+
+        this.user = 'vladi2';
+        this.password = '1234';
+        this.login(null);
+
+    }
 
     public ngOnInit() {
         console.log('hello `login` component');
