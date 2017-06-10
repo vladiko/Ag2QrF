@@ -30,16 +30,16 @@ export class DynamicAreaService {
         type: new (...args: any[]) => any,
         bindings?: { [key: string]: any }
     ) {
+        if (this.reject) {
+            this.reject('error: another popup is open');
+            this.cleanAll();
+        }
         this.instance = this.da.loadComponent(type);
         if (bindings) {
             let keys = Object.keys(bindings);
             keys.forEach((element) => {
                 this.instance[element] = bindings[element];
             });
-        }
-        if (this.reject) {
-            this.reject('error: another popup is open');
-            this.cleanAll();
         }
         this.promise = new Promise((resolve, reject) => {
             this.resolve = resolve;
