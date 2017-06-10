@@ -1,6 +1,7 @@
 import {
   Component,
-  OnInit
+  OnInit,
+  OnDestroy
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -11,16 +12,19 @@ import { ActivatedRoute } from '@angular/router';
   template: `
     <h1>About</h1>   
     <vladi></vladi>
-    <pre>this.localState = {{ localState | json }}</pre>
-  `
+     `
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent implements OnInit, OnDestroy {
+
 
   public localState: any;
   constructor(
     public route: ActivatedRoute
   ) { }
 
+  public ngOnDestroy(): void {
+    //console.log('about ondestroy');
+  }
   public ngOnInit() {
     this.route
       .data

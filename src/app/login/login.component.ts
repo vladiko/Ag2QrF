@@ -3,6 +3,7 @@ import {
     OnInit
 } from '@angular/core';
 import { LoginCommunicationHelper } from '../+communication';
+import { CurrentUser } from '../+authentication';
 @Component({
     selector: 'login',
     styleUrls: [
@@ -17,7 +18,8 @@ export class LoginComponent implements OnInit {
     public loginMessage = '';
 
     constructor(
-        public loginCommunicationHelper: LoginCommunicationHelper
+        public loginCommunicationHelper: LoginCommunicationHelper,
+        public currentUser: CurrentUser
     ) {
 
         // this.user = 'vladi2';
@@ -27,14 +29,12 @@ export class LoginComponent implements OnInit {
     }
 
     public ngOnInit() {
-        console.log('hello `login` component');
+        //console.log('hello `login` component');
     }
     public login(a) {
         this.loginCommunicationHelper.login(this.user, this.password).subscribe((data) => {
             if (data && data.token) {
-                this.loginMessage = 'login succeeded';
-            } else if (data) {
-                this.loginMessage = data;
+                this.loginMessage = '';
             } else {
                 this.loginMessage = 'login failed';
             }

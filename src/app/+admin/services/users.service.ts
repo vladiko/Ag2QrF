@@ -14,4 +14,7 @@ export class UserService {
         return this.usersCommunicationHelper.getUsers();
     }
 
+    public deleletUser(username: string) {
+        return this.usersCommunicationHelper.delete(username);
+    }
 }
