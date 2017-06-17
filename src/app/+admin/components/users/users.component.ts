@@ -9,6 +9,8 @@ import { Modal } from 'angular2-modal/plugins/bootstrap';
 
 import { UserService } from '../../services/users.service';
 import { CurrentUser } from '../../../+authentication';
+import { DynamicModalService } from '../../../+common/index';
+import { UserEditComponent } from '../userEdit/userEdit.component';
 
 @Component({
     selector: 'users',
@@ -17,7 +19,9 @@ import { CurrentUser } from '../../../+authentication';
 export class UsersComponent implements OnInit, AfterViewInit {
 
     public users;
-    constructor(public userService: UserService,
+    constructor(
+        public userService: UserService,
+        public dynamicModalService: DynamicModalService,
         // tslint:disable-next-line:align
         public currentUser: CurrentUser,
         // tslint:disable-next-line:align
@@ -73,4 +77,11 @@ export class UsersComponent implements OnInit, AfterViewInit {
             });
     }
 
+    public editUser(user) {
+        this.dynamicModalService.open(UserEditComponent, { data: 'vladi' }).then((s) => {
+            alert('userName: ' + user.username + ' get data ' + s.data);
+        }, (f) => {
+            alert('ddffdd');
+        });
+    }
 }

@@ -12,17 +12,11 @@ import { AboutComponent } from '../about/index';
 import { DynamicAreaService } from './dynamiArea.service';
 @Component({
     selector: 'dynamic-area',
-    template: `
-            <div class='container'>
-              <h3 *ngIf="isOpen">dynamic loader</h3>
-              <ng-template dynamic-host></ng-template>
-              <button *ngIf="!isOpen" (click)="load()">load</button>
-              <div *ngIf="isOpen">
-               <button (click)="cancel()">cancel</button>
-               <button (click)="ok()">ok</button>
-              </div>
-            </div>
-          `
+    styleUrls: [
+        './dynamicArea.component.css'
+    ],
+    templateUrl: './dynamicArea.component.html'
+
 })
 export class DynamicAreaComponent implements AfterViewInit, OnDestroy {
     //   @Input() ads: AdItem[];
@@ -30,10 +24,11 @@ export class DynamicAreaComponent implements AfterViewInit, OnDestroy {
     @ViewChild(DynamicDirective) public dynamicHost: DynamicDirective;
     public a = true;
     public isOpen = false;
+    public shown = false;
 
 
     private subscription: any;
-    // private interval: any;
+    private interval: any;
 
     constructor(
         private _componentFactoryResolver: ComponentFactoryResolver,
@@ -51,6 +46,9 @@ export class DynamicAreaComponent implements AfterViewInit, OnDestroy {
     }
 
     public ngAfterViewInit() {
+          this.interval = setInterval(() => {
+            this.shown = !this.shown;
+        }, 5000);
         // this.loadComponent();
         // this.getAds();
     }

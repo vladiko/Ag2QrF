@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 import { UsersComponent } from './components/users/users.component';
 import { UserEditComponent } from './components/userEdit/userEdit.component';
 import { UserService } from './services/users.service';
+import { AppCommonModule } from '../+common/index';
+
 
 // console.log('`Barrel` bundle loaded asynchronously');
 
@@ -19,6 +21,7 @@ import { UserService } from './services/users.service';
     entryComponents: [UserEditComponent],
     imports: [
         CommonModule,
+        AppCommonModule,
         FormsModule// ,
         // RouterModule.forChild(routes),
     ],

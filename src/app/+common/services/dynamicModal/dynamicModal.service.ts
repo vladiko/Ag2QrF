@@ -1,27 +1,33 @@
 import { Injectable } from '@angular/core';
-import { DynamicAreaComponent } from './dynamicArea.component';
+import { DynamicModalComponent } from './dynamicModal.component';
 
 @Injectable()
-export class DynamicAreaService {
-    private da: DynamicAreaComponent;
+export class DynamicModalService {
+    private da: DynamicModalComponent;
 
     private promise: Promise<any>;
     private resolve;
     private reject;
     private instance;
+    private _isShown = false;
+    public get isShown() {
+        return this._isShown;
+    }
 
 
-    public initDynamicArea(da: DynamicAreaComponent) {
+    public initDynamicModal(da: DynamicModalComponent) {
         this.da = da;
     }
 
     public ok() {
         this.resolve(this.instance);
+        this._isShown = false;
         this.cleanAll();
     }
 
     public cancel() {
         this.reject(this.instance);
+        this._isShown = false;
         this.cleanAll();
     }
 
@@ -41,6 +47,7 @@ export class DynamicAreaService {
                 this.instance[element] = bindings[element];
             });
         }
+        this._isShown = true;
         this.promise = new Promise((resolve, reject) => {
             this.resolve = resolve;
             this.reject = reject;

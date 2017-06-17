@@ -27,6 +27,11 @@ import {
 import {
   CommunicationModule
 } from './+communication';
+
+import {
+  AppCommonModule
+} from './+common';
+
 /*
  * Platform and Environment providers/directives/pipes
  */
@@ -43,7 +48,6 @@ import { VladiComponent } from './vladi';
 import { LoginComponent } from './login';
 import { NoContentComponent } from './no-content';
 import { XLargeDirective } from './home/x-large';
-import { UsersComponent } from './+admin';
 import { DynamicDirective } from './dynamicLoading/dynamic.derective';
 import { DynamicAreaComponent } from './dynamicLoading/dynamicArea.component';
 
@@ -90,7 +94,9 @@ type StoreType = {
     AdminModule,
     AuthenticationModule,
     CommunicationModule,
+    AppCommonModule,
     ModalModule.forRoot(),
+    AppCommonModule,
     BootstrapModalModule,
     RouterModule.forRoot(ROUTES, { useHash: true, preloadingStrategy: PreloadAllModules })
   ],

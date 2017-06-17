@@ -1,0 +1,9 @@
+<div class='container' [ngClass]="{'shown' : shown}">
+    <h3 *ngIf="isOpen">dynamic loader</h3>
+    <ng-template dynamic-host></ng-template>
+    <button *ngIf="!isOpen" (click)="load()">load</button>
+    <div *ngIf="isOpen">       
+        <button (click)="ok()">ok</button>
+        <button (click)="cancel()">cancel</button>
+    </div>
+</div>
