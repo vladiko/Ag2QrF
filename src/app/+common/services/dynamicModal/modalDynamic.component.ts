@@ -8,10 +8,6 @@ import {
 } from '@angular/core';
 import { DynamicModalService } from './dynamicModal.service';
 import { ModalDynamicHostDirective } from './modalDynamicHost.directive';
-// import { DynamicDirective } from './dynamic.derective';
-// import { UserEditComponent } from '../+admin/components/userEdit/userEdit.component';
-// import { AboutComponent } from '../about/index';
-// import { DynamicAreaService } from './dynamiArea.service';
 @Component({
     selector: 'modal-dynamic',
     styleUrls: [
@@ -21,11 +17,13 @@ import { ModalDynamicHostDirective } from './modalDynamicHost.directive';
 })
 export class ModalDynamicComponent implements AfterViewInit, OnDestroy {
     @ViewChild(ModalDynamicHostDirective) public dynamicHost: ModalDynamicHostDirective;
-    public a = true;
-    public _isOpen = false;
-    public shown = false;
+    public animClass = 'hidden-modal';
+    public title = 'Title test';
+
     private subscription: any;
     private interval: any;
+    private dialogWidth: string;
+
 
     constructor(
         private _componentFactoryResolver: ComponentFactoryResolver,
@@ -33,17 +31,11 @@ export class ModalDynamicComponent implements AfterViewInit, OnDestroy {
         this.dynamicModalService.initDynamicModal(this);
     }
 
+
+
     public get isOpen() {
         return this.dynamicModalService.isShown;
     };
-    public load() {
-        // this.dynamicModalService.open<AboutComponent>(UserEditComponent, { data: 'vladi2' }).then((instance: any) => {
-        //     alert(instance.data);
-        // }, (instance) => {
-        //     alert('rejected: ' + instance.data);
-        // });
-        // this.isOpen = true;
-    }
 
     public ngAfterViewInit() {
         //       this.interval = setInterval(() => {
@@ -60,24 +52,34 @@ export class ModalDynamicComponent implements AfterViewInit, OnDestroy {
     public clean() {
         let viewContainerRef = this.dynamicHost.viewContainerRef;
         viewContainerRef.clear();
-
     }
 
     public ok() {
         this.dynamicModalService.ok();
+        this.closeModal()
         this.clean();
     }
 
     public cancel() {
         this.dynamicModalService.cancel();
+        this.closeModal();
         this.clean();
     }
 
-    public loadComponent(a: any, bindings?: { [key: string]: any }) {
+    public loadComponent(a: any, title: string, width: number) {
         let componentFactory = this._componentFactoryResolver.resolveComponentFactory(a);
         let viewContainerRef = this.dynamicHost.viewContainerRef;
         viewContainerRef.clear();
         let componentRef = viewContainerRef.createComponent(componentFactory);
+        this.title = title;
+        this.dialogWidth = width + 'px';
         return componentRef.instance;
+    }
+    private closeModal() {
+        this.animClass = 'collapsed';
+        this.dialogWidth = '0';
+        setTimeout(() => {
+            this.animClass = 'hidden-modal';
+        }, 300);
     }
 }

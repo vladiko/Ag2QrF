@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
-import { DynamicModalComponent } from './dynamicModal.component';
+import { ModalDynamicComponent } from './modalDynamic.component';
 
 @Injectable()
 export class DynamicModalService {
-    private da: DynamicModalComponent;
+
+    public defaultWidht = 500;
+    private da: ModalDynamicComponent;
 
     private promise: Promise<any>;
     private resolve;
@@ -15,7 +17,7 @@ export class DynamicModalService {
     }
 
 
-    public initDynamicModal(da: DynamicModalComponent) {
+    public initDynamicModal(da: ModalDynamicComponent) {
         this.da = da;
     }
 
@@ -34,13 +36,15 @@ export class DynamicModalService {
 
     public open<T>(
         type: new (...args: any[]) => any,
-        bindings?: { [key: string]: any }
+        title: string,
+        bindings?: { [key: string]: any },
+        width?: number
     ) {
         if (this.reject) {
             this.reject('error: another popup is open');
             this.cleanAll();
         }
-        this.instance = this.da.loadComponent(type);
+        this.instance = this.da.loadComponent(type, title, width || this.defaultWidht);
         if (bindings) {
             let keys = Object.keys(bindings);
             keys.forEach((element) => {

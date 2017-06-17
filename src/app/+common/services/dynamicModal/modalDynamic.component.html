@@ -1,9 +1,16 @@
-<div class='container' [ngClass]="{'shown' : isOpen}">
-    <h3 *ngIf="isOpen">dynamic loader</h3>
-    <ng-template dynamic-modal-host></ng-template>
-    <button *ngIf="!isOpen" (click)="load()">load</button>
-    <div *ngIf="isOpen">
-        <button (click)="cancel()">cancel</button>
-        <button (click)="ok()">ok</button>
+<div class='container' [ngClass]="animClass" [style.maxWidth]="dialogWidth">
+    <div class="modal-dynamic-title">
+        <h3>{{title}}</h3>
+    </div>
+
+    <div class="modal-dynamic-content">
+        <ng-template dynamic-modal-host></ng-template>
+    </div>
+
+    <div class="modal-dynamic-footer">
+        <div>
+            <button class="btn btn-default modal-dynamic-footer-button" [ngClass]="{'button-opacity' : isOpen}" (click)="ok() ">ok</button>
+            <button class="btn modal-dynamic-footer-button" [ngClass]="{'button-opacity' : isOpen}" (click)="cancel() ">cancel</button>
+        </div>
     </div>
 </div>

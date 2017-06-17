@@ -2,15 +2,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { NgModule, ApplicationRef } from '@angular/core';
 import { RouterModule } from '@angular/router';
-// import { DynamicModalComponent } from './dynamicModal/dynamicModal.component';
-// import { ModalDynamicComponent } from './services/dynamicModal/modalDynamic.component';
 import {
     DynamicModalService,
     ModalDynamicHostDirective,
     ModalDynamicComponent
 } from './services/dynamicModal';
-
-// console.log('`Barrel` bundle loaded asynchronously');
 
 @NgModule({
     declarations: [
@@ -19,12 +15,10 @@ import {
          */
         ModalDynamicHostDirective,
         ModalDynamicComponent
-        // DynamicModalComponent
     ],
     imports: [
         CommonModule,
-        FormsModule// ,
-        // RouterModule.forChild(routes),
+        FormsModule
     ],
     providers: [
         DynamicModalService

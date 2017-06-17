@@ -1,24 +1,63 @@
 
-@keyframes expand {
-    from {max-width:0;}
-    to {max-width:500px;}
+@keyframes buttonOpacity{
+    from {opacity: 0}
+    to {opacity: 1}
 }
 
 div.container {
+    transition: max-width 300ms;
+    display: flex;
+    flex-direction: column;
     position: absolute;
     height: 100%;
     max-width:0; 
-    overflow-x: scroll;
+    overflow-x: auto;
     top: 0;
     float:initial;
     right: 0;
-    background-color: #eeeeee;      
+    padding: 0;
+    background-color: #eeeeee;     
+}
+
+.modal-dynamic-content{   
+    flex-grow: 2;    
+    padding: 10px
+}
+
+.modal-dynamic-title{
+   height: 70px;
+   background-color: #bbb;   
+   color: white;
+   padding: 0 15px 0 15px;
+}
+
+.modal-dynamic-footer{
+   height: 70px;
+   background-color: #aaa;   
+   padding:15px;
+   text-align: right;
+}
+
+.modal-dynamic-footer-button{   
+    opacity: 0;
+    min-width: 70px;
+    margin-left: 10px;
+}
+
+.button-opacity { 
+    animation-name: buttonOpacity;
+    animation-duration: 150ms;
+    animation-delay:  250ms;
+    animation-fill-mode: forwards;
+}
+
+.hidden-modal {
     display: none;
 }
 
-div.container.shown{   
-    animation-name: expand;
-    animation-duration: 200ms;
-    animation-fill-mode: forwards;
-    display: block;    
-}
+
+
+
+
+
+

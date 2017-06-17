@@ -78,10 +78,10 @@ export class UsersComponent implements OnInit, AfterViewInit {
     }
 
     public editUser(user) {
-        this.dynamicModalService.open(UserEditComponent, { data: 'vladi' }).then((s) => {
-            alert('userName: ' + user.username + ' get data ' + s.data);
+        this.dynamicModalService.open(UserEditComponent, 'Edit User', { data: 'vladi' }, 600).then((s) => {
+            // alert('userName: ' + user.username + ' get data ' + s.data);
         }, (f) => {
-            alert('ddffdd');
+            // alert('ddffdd');
         });
     }
 }
